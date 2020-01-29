@@ -8,18 +8,13 @@
                        @select="handleSelect"
                        background-color="#141f29"
                        text-color="#fff"
-                       active-text-color="#ffd04b">
+                       active-text-color="#ffd04b"
+                       router>
                    <el-submenu index="1">
-                       <template slot="title">我的工作台</template>
-                       <el-menu-item index="1-1"><router-link to="/foo">GoTo Foo</router-link></el-menu-item>
-                       <el-menu-item index="1-2"><router-link to="/bar">GoTo Bar</router-link></el-menu-item>
-                       <el-menu-item index="1-3">选项3</el-menu-item>
-                       <el-submenu index="1-4">
-                           <template slot="title">选项4</template>
-                           <el-menu-item index="1-4-1">选项1</el-menu-item>
-                           <el-menu-item index="1-4-2">选项2</el-menu-item>
-                           <el-menu-item index="1-4-3">选项3</el-menu-item>
-                       </el-submenu>
+                       <template slot="title">菜单项</template>
+                       <el-menu-item index="/foo">Foo</el-menu-item>
+                       <el-menu-item index="/bar">Bar</el-menu-item>
+                       <el-menu-item index="/">首页</el-menu-item>
                    </el-submenu>
                </el-menu>
            </el-col>
@@ -58,22 +53,23 @@
     export default {
         data() {
             return {
-                activeIndex: '1-1',
-                currentUser: "wenfeng.zhou",
+                activeIndex: this.$route.path,
+                currentUser: '',
             };
         },
         components: {
             Table,
         },
+        created: function() {
+            if (this.$route.path == '/') {
+                this.currentUser = 'xxx';
+            } else {
+                this.currentUser = 'yyy';
+            }
+        },
         methods: {
             handleSelect(key, keyPath) {
                 console.log(key, keyPath);
-                if (this.currentUser == "wenfeng.zhou") {
-                    this.currentUser = "kunxi.lu";
-                    document.getElementById("body").innerHTML="<p>Hello WOrld</p>"
-                } else {
-                    this.currentUser = "wenfeng.zhou";
-                }
             }
         }
     }

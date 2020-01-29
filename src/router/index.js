@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Main from '../pages/Main.vue'
+import Foo from '../pages/Foo.vue'
+import Bar from '../pages/Bar.vue'
 
 Vue.use(VueRouter)
-
-const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>' }
 
 export default new VueRouter({
     routes: [

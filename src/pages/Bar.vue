@@ -1,8 +1,8 @@
 <template>
-    <div id="main">
+    <div id="bar">
         <Nav></Nav>
         <div id="body">
-            <p>This is main page.</p>
+            <p>This is bar page.</p>
         </div>
     </div>
 </template>
