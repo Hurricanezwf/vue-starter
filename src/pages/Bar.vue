@@ -2,7 +2,7 @@
     <div id="bar">
         <Nav></Nav>
         <div id="body">
-            <p>This is bar page.</p>
+            <p>This is bar page. {{ count }}</p>
         </div>
     </div>
 </template>
@@ -15,6 +15,14 @@
 <script>
     import Nav from '../components/Nav.vue';
     export default {
+        data: function() {
+            return {
+                count: this.$store.getters['bar/getCount'],
+            }
+        },
+        beforeCreate: function () {
+            this.$store.commit('bar/increment');
+        },
         components: {
             Nav,
         },
