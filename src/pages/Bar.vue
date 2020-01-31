@@ -2,7 +2,7 @@
     <div id="bar">
         <Nav></Nav>
         <div id="body">
-            <p>This is bar page. {{ count }}</p>
+            <p>This is bar page. count is {{ count }}</p>
         </div>
     </div>
 </template>
